@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$default-font: 'Open Sans', sans-serif;
+
+// default colors
+.theme-wrapper {
+  --cardColor: #CCC;
+  --cardBackground: #FFF;
+  --cardWidth:200px;
+  --cardHeight:200px;
+  --cardBorderWidth:1px;
+  --cardBorderStyle:solid;
+  --cardBorderColor:#000;
+  --cardMargin:12px;
+  --cardPadding:12px;
+  --buttonColor: #FFF;
+  --buttonBackground: #FFF;
+  --buttonBorderWidth: 1px;
+  --buttonBorderStyle: solid;
+  --buttonBorderColor: #000;
+  --navColor: #FFF;
+  --navBackground: #FFF;
+  --footerColor: #FFF;
+  --footerBackground: #FFF;
+  --footerAlignment: left;
+}
+
+$variables: (
+  --cardColor: var(--cardColor),
+  --cardBackground: var(--cardBackground),
+  --cardWidth: var(--cardWidth),
+  --cardHeight: var(--cardHeight),
+  --cardBorderWidth: var(--cardBorderWidth),
+  --cardBorderStyle: var(--cardBorderStyle),
+  --cardBorderColor: var(--cardBorderColor),
+  --cardMargin: var(--cardMargin),
+  --cardPadding: var(--cardPadding),
+  --buttonColor: var(--buttonColor),
+  --buttonBackground: var(--buttonBackground),
+  --buttonBorderWidth: var(--buttonBorderWidth),
+  --buttonBorderStyle: var(--buttonBorderStyle),
+  --buttonBorderColor: var(--buttonBorderColor),
+  --navColor: var(--navColor),
+  --navBackground: var(--navBackground),
+  --footerColor: var(--footerColor),
+  --footerBackground: var(--footerBackground),
+  --footerAlignment: var(--footerAlignment)
+);

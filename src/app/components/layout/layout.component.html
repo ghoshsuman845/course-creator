@@ -1,0 +1,16 @@
+<div>
+  <button class="button__theme-switcher" (click)="toggleThemeSwitcher()">
+    Toggle Theme Switcher
+  </button>
+
+  <app-theme-picker *ngIf="isSwitcherShown"></app-theme-picker>
+
+  <div class="theme-wrapper">
+    <app-navigation></app-navigation>
+    <app-card></app-card>
+    <app-final-course></app-final-course>
+    <app-output></app-output>
+    <app-footer></app-footer>
+   
+  </div>
+</div>

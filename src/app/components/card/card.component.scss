@@ -1,0 +1,107 @@
+@import '../../theme';
+@import '../../functions';
+
+:host {
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 4% 0 10% 0;
+    .card {
+      background-color: var(--cardBackground);
+      color: var(--cardColor);
+      // width: var(--cardWidth);
+      // height: var(--cardHeight);
+      width:200px;
+      height:200px;
+      // border-width:  var(--cardBorderWidth);
+      // border-style:  var(--cardBorderStyle);
+      // border-color: var(--cardBorderColor);
+      border: 1px solid var(--cardBorderColor);
+      // margin:  var(--cardMargin);
+      // padding:  var(--cardPadding);
+      margin:12px;
+      padding:12px;
+      font-family: $default-font;
+      h1 {
+        margin-top: 0;
+      }
+      button {
+        background-color: var(--buttonBackground);
+        color: var(--buttonColor);
+        border-width:  var(--buttonBorderWidth);
+        border-style:  var(--buttonBorderStyle);
+        border-color: var(--buttonBorderColor);
+        font-family: $default-font;
+        padding: 12px;
+      }
+    }
+  }
+  .reusableCompWrap {
+    float: left;
+    width: 100%;
+    .toolbar {
+      width: 20%;
+      float: left;
+      box-sizing: border-box;
+      padding: 0 1%;
+      button {
+        width: 100%;
+        height: 38px;
+        margin-bottom: 15px;
+      }
+      .dragComponent{
+        .draggable {
+          font-family: Arial, Helvetica, sans-serif;
+          width: 48%;
+          float: left;
+          margin: 1%;
+          box-sizing: border-box;
+          padding: 4% 1%;
+          text-align: center;
+          font-size: 13px;
+          border: 1px solid #000;
+        }
+      }
+    }
+    gridster {
+      display: flex;
+      height: calc(100vh - 45px);
+      flex-direction: column;
+      width: 80%;
+      background: #fff;
+      border: 1px solid #0000000d;
+      box-shadow: 0px 0px 29px -23px #000;
+      gridster-item {
+        border: 1px solid #0000000d;
+        box-shadow: 0px 0px 29px -23px #000;
+        border-radius: 4px;
+        background: #00000012;
+        button.close {
+          right: 1%;
+          top: 2%;
+          position: absolute;
+          border-radius: 50%;
+          border: 1px solid #000;
+          height: 25px;
+          width: 25px;
+          font-size: 17px;
+          &:hover{
+            background: #f00;
+            color: #fff;
+            border-color:#fff;
+          }
+        }
+        .settingBtn.close {
+          right: 5%!important;
+          top: 2%!important;
+          &:hover {
+            background: #737373!important;
+          }
+        }
+
+      }
+    }
+  }
+}

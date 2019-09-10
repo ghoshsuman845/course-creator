@@ -1,0 +1,117 @@
+<div class="theme">
+    <form #gsForm="ngForm" (ngSubmit)="onSubmit(gsForm)" class="colorPickerForm">
+        <div class="col-3">
+            <p>Navigation Custom Settings</p>
+            <div class="field">
+                <label>Set Navigation Font Color: </label>
+                <input #navColor name="globalNavColor" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Navigation Background Color: </label>
+                <input #navBackground name="globalNavBackground" type="color" ngModel>
+            </div>
+        </div>
+        <div class="col-3">
+            <p>Body/Card Custom Settings</p>
+            <div class="field">
+                <label>Set Card Font Color: </label>
+                <input #cardColor name="globalCardColor" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Card Background Color:</label>
+                <input #cardBackground name="globalCardBackground" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Card Width:</label>
+                <input #cardWidth name="globalCardWidth" type="text" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Card Height:</label>
+                <input #cardHeight name="globalCardHeight" type="text" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Card Border Width:</label>
+                <input #cardBorderWidth name="globalCardBorderWidth" type="text" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Card Border Style:</label>
+                <select name="globalCardBorderStyle" ngModel>
+                    <option value="solid">Solid</option>
+                    <option value="dashed">Dashed</option>
+                    <option value="dotted">Dotted</option>
+                    <option value="double">Double</option>
+                    <option value="groove">Groove</option>
+                    <option value="hidden">Hidden</option>
+                    <option value="outset">Outset</option>
+                    <option value="ridge">Ridge</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Set Card Border Color:</label>
+                <input #cardBorderColor name="globalCardBorderColor" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Card Margin:</label>
+                <input #cardMargin name="globalCardMargin" type="text" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Card Padding:</label>
+                <input #cardPadding name="globalCardPadding" type="text" ngModel>
+            </div>
+        </div>
+        <div class="col-3">
+            <p>Button Custom Settings</p>
+            <div class="field">
+                <label>Set Button Color: </label>
+                <input #buttonColor name="globalButtonColor" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Button Background Color:</label>
+                <input #buttonBackground name="globalButtonBackground" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Button Border Width:</label>
+                <input #buttonBorderWidth name="globalButtonBorderWidth" type="text" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Button Border Style:</label>
+                <select name="globalButtonBorderStyle" ngModel>
+                    <option value="solid">Solid</option>
+                    <option value="dashed">Dashed</option>
+                    <option value="dotted">Dotted</option>
+                    <option value="double">Double</option>
+                    <option value="groove">Groove</option>
+                    <option value="hidden">Hidden</option>
+                    <option value="outset">Outset</option>
+                    <option value="ridge">Ridge</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Set Button Border Color:</label>
+                <input #buttonBorderColor name="globalButtonBorderColor" type="color" ngModel>
+            </div>
+        </div>
+        <div class="col-3">
+            <p>Footer Custom Settings</p>
+            <div class="field">
+                <label>Set Footer Font Color: </label>
+                <input #footerColor name="globalFooterColor" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Footer Background Color: </label>
+                <input #footerBackground name="globalFooterBackground" type="color" ngModel>
+            </div>
+            <div class="field">
+                <label>Set Footer Text Alignment:</label>
+                <select name="globalFooterAlignment" ngModel>
+                    <option value="left">Left</option>
+                    <option value="center">Center</option>
+                    <option value="right">Right</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    </div>

@@ -1,0 +1,57 @@
+.theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: #f4f4f4;
+    padding: 24px;
+    text-align: right;
+    font-family: 'Open Sans', serif;
+    font-weight: 300;
+}
+.colorPickerForm {
+    float: left;
+    width: 100%;
+    .col-3 {
+        width: 23%;
+        float: left;
+        margin: 1%;
+        &>p {
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .field {
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: left;
+            label {
+                font-size: 13px;
+            }
+            input {
+                float: right;
+            }
+            input[type=text] {
+                width: 30%;
+            }
+            input[type="color"] {
+                width: 10%;
+                height: 25px;
+                border: 0;
+                background: transparent;
+                display: block;
+                -webkit-appearance: button;
+                padding: 0;
+                cursor: pointer;
+            }
+            select {
+                float: right;
+                width: 30%;
+            }
+        }
+    }
+    .col-12 {
+        width: 100%;
+        float: left;
+    }
+}

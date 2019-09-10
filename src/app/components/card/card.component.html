@@ -1,0 +1,108 @@
+<div class="card-container">
+    <div *ngFor="let card of cardSamples" class="card">
+        <h1>{{card.title}}</h1>
+        <p>{{card.value}}</p>
+        <button>Read more</button>
+    </div>
+</div>
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add a Block to Layout</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Component Settings</p>
+        <form #compForm="ngForm" (ngSubmit)="submitValue(compForm)" class="compForm">
+            <div class="row">
+            <div class="form-group col">
+                <input #cols name="compCols" type="number" class="form-control" placeholder="Colloums(1-100)" ngModel>
+            </div>
+            <div class="form-group col">
+                <input #rows name="compRows" type="number" class="form-control" placeholder="Rows(1-100)" ngModel>
+            </div>
+            </div>
+            <div class="row">
+            <div class="form-group col">
+                <input #yAxis name="compYaxis" type="number" class="form-control" placeholder="Y Axis Position" ngModel>
+            </div>
+            <div class="form-group col">
+                <input #xAxis name="compXaxis" type="number" class="form-control" placeholder="X Axis Position" ngModel>
+            </div>
+            </div>
+            <div class="row">
+            <div class="form-group col">
+                <label for="compHasContent">Has Content: </label>
+                <select name="compHasContent" class="form-control" ngModel>
+                    <option selected="selected">Select One</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group col">
+                <label for="compDragEnabled">Drag Enable?: </label>
+                <select name="compDragEnabled" class="form-control" ngModel>
+                    <option selected="selected">Select One</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group col">
+                <label for="compResizeEnabled">Resize Enable?: </label>
+                <select name="compResizeEnabled" class="form-control" ngModel>
+                    <option selected="selected">Select One</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <input #label name="compLabel" type="text" class="form-control" placeholder="Label" value="Block Title" ngModel>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondry" (click)="modal.dismiss('Cancel Button')">Cancel</button>
+        </form>
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" >Cancel</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+    </ng-template>
+
+    <div class="reusableCompWrap">
+    <div class="toolbar">
+        <button (click)="addItem(content)">Add Block</button>
+        <div class="dragComponent">
+        <p>Drag & Drop Components to Block</p>
+        <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example1')">Button</div>
+        <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example2')"> TextArea</div>
+        <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example3')">Input</div>
+        <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example4')">Component 4</div>
+        </div>
+    </div>
+    <gridster [options]="options">
+        <gridster-item *ngFor="let item of layout" [item]="item" (dragover)="layoutService.setDropId(item.id)">
+        <ng-container appLayoutItem [componentRef]="layoutService.getComponentRef(item.id)"></ng-container>
+        <!-- <div class="item-buttons" *ngIf="item.hasContent">
+            <button class="drag-handler">M</button>
+        </div> -->
+        <button class="close" (click)="layoutService.deleteItem(item)">X</button>
+        <div class="settingsBtn">
+            <button class="close settingBtn" (click)="openSettings(item);">S</button>
+            <div class="settingWrap" *ngIf="settingPanelComp && itemId == item.id">
+            {{item | json}}
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+        </gridster-item>
+    </gridster>
+   
+    </div>
+    
+    {{closeResult}}

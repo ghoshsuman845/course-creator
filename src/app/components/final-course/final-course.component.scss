@@ -1,0 +1,51 @@
+.main{
+   
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    margin: auto 40%;
+}
+.title{
+    font-size: 30px;
+    color: #078292;
+    text-align: left;
+    padding: 20px 10px;
+    background-color: rgb(199, 189, 189);
+}
+.desc{
+    font-size: 18px;
+    line-height: 19px;
+    text-align: left;
+    padding: 20px 10px;
+   
+}
+.subdesc{
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    padding: 20px 10px;
+   
+
+}
+.component1{
+ 
+    // height: 40px;
+    background-color: #078292;
+    
+
+}
+.component2{
+    text-align: left;
+    padding: 20px 10px;
+    margin: 0% 40%;
+
+}
+input[type=text]{
+    margin: 1% 4%;
+    width: 90%;
+}
+input[type=button]{
+   
+    background-color: rgb(199, 189, 189);
+}
