@@ -13,7 +13,11 @@ export class Example3Component implements OnInit {
   constructor(private layoutService:LayoutService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    console.log('Example 3 Working')
+    var code2 = document.getElementById("example3");
+    console.log(code2);
+    localStorage.setItem("example3",code2.innerHTML);
+
+    console.log('Input is working')
   }
   removeComp(item){
     console.log(item)

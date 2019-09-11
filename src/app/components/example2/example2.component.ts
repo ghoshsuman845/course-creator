@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./example2.component.scss']
 })
 export class Example2Component implements OnInit {
-
+  
   constructor() { }
+  
 
   ngOnInit() {
-    console.log('Example 2 Working')
+    var code = document.getElementById("example2");
+    console.log(code);
+    localStorage.setItem("example2",code.innerHTML);
+
+    console.log('textarea Working');
+   
   }
 
   onSave(form){
@@ -20,7 +26,9 @@ export class Example2Component implements OnInit {
   global(form){
     console.log(form);
     console.log(form.title);
-    console.log(form.description)
+    localStorage.setItem("form", JSON.stringify(form));
+
+  
   }
 
 }

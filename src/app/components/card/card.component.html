@@ -86,7 +86,8 @@
         <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example4')">Component 4</div>
         </div>
     </div>
-    <gridster [options]="options">
+    <form #cardForm="ngForm" (ngSubmit)="onSave(cardForm)">
+     <gridster [options]="options">
         <gridster-item *ngFor="let item of layout" [item]="item" (dragover)="layoutService.setDropId(item.id)">
         <ng-container appLayoutItem [componentRef]="layoutService.getComponentRef(item.id)"></ng-container>
         <!-- <div class="item-buttons" *ngIf="item.hasContent">
@@ -101,8 +102,9 @@
         </div>
         <button type="submit">Submit</button>
         </gridster-item>
-    </gridster>
+     </gridster>
+    </form> 
    
     </div>
     
-    {{closeResult}}
+  

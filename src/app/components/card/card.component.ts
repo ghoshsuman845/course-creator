@@ -78,6 +78,17 @@ export class CardComponent {
       this.itemId = item.id;
       console.log(item)
   }
+  onSave(form){
+    this.global(form.value);
+  }
+
+  global(form){
+    console.log(form);
+    console.log(form.title);
+    localStorage.setItem("form", JSON.stringify(form));
+
+  
+  }
 
   // dropItem(item){
   //   this.layoutService.dropItem(item);

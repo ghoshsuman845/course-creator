@@ -1,7 +1,8 @@
-<div class="reusableComponent">
+<div class="reusableComponent" id="example2">
     <p>example2 works!</p>
     <form #exampleForm="ngForm" (ngSubmit)="onSave(exampleForm)" class="colorPickerForm" >
         <input #name type="text" name="title" placeholder="Title" ngModel><br>
+        <input #name type="text" name="subtitle" placeholder="Sub Title" ngModel><br>
         <textarea rows="4" cols="50" name="description" placeholder="Description" ngModel >
             Enter description here...</textarea><br>
         <button type="submit">Save</button>

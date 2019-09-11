@@ -12,7 +12,7 @@ export class Example1Component implements OnInit {
   constructor(private layoutService:LayoutService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    console.log('Example 1 Working')
+    console.log('Button is Working')
   }
 
   get components(): IComponent[] {

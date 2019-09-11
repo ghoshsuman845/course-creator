@@ -1,19 +1,21 @@
 <div class="main">
     <div class="title"> 
-        Text Input
+        
+        {{divdata.title}}
     </div>
     <div class="desc">
-            Can you name one of the three companies that established Adapt as a community led Open Source project?
+            {{divdata.description}}
     </div>
    <div class="subdesc">
-       <b>  Input your answer and select Submit.</b>
+       <b> {{divdata.subtitle}}</b>
    </div>
    <div class="component">
-       <div class="component1">
+       <div class="component1" id="comp1">
             <input type="text" placeholder="Input text">
+            {{component}}
        </div>
        <div class="component2">
-            <input type="button" value="Submit">
+            <input type="button" value="Submit" >
 
        </div>
    </div>
