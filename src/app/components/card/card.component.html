@@ -86,10 +86,10 @@
         <div class="draggable" draggable="true" (dragend)="layoutService.dropItem('example4')">Component 4</div>
         </div>
     </div>
-    <form #cardForm="ngForm" (ngSubmit)="onSave(cardForm)">
+    <form #cardForm="ngForm"  (ngSubmit)="submitBlock(cardForm)">
      <gridster [options]="options">
-        <gridster-item *ngFor="let item of layout" [item]="item" (dragover)="layoutService.setDropId(item.id)">
-        <ng-container appLayoutItem [componentRef]="layoutService.getComponentRef(item.id)"></ng-container>
+        <gridster-item *ngFor="let item of layout" [item]="item" (dragover)="layoutService.setDropId(item.id)" id="block">
+        <ng-container appLayoutItem [componentRef]="layoutService.getComponentRef(item.id)" ></ng-container>
         <!-- <div class="item-buttons" *ngIf="item.hasContent">
             <button class="drag-handler">M</button>
         </div> -->
@@ -100,7 +100,7 @@
             {{item | json}}
             </div>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
         </gridster-item>
      </gridster>
     </form> 

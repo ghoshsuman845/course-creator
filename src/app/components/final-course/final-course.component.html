@@ -1,18 +1,21 @@
-<div class="main">
-    <div class="title"> 
+<div class="main" id="block" *ngFor = "let post of listPost" >
+    
+ 
+    <div class="title" > 
+           
         
-        {{divdata.title}}
+        {{post.title}}
     </div>
     <div class="desc">
-            {{divdata.description}}
+            {{post.description}}
     </div>
    <div class="subdesc">
-       <b> {{divdata.subtitle}}</b>
+       <b> {{post.subtitle}}</b>
    </div>
    <div class="component">
        <div class="component1" id="comp1">
             <input type="text" placeholder="Input text">
-            {{component}}
+            <!-- {{component}} -->
        </div>
        <div class="component2">
             <input type="button" value="Submit" >

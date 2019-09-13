@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LayoutService } from '../../services/layout.service';
 @Component({
   selector: 'app-example2',
   templateUrl: './example2.component.html',
   styleUrls: ['./example2.component.scss']
 })
 export class Example2Component implements OnInit {
-  
-  constructor() { }
+ 
+  constructor(private layoutserive:LayoutService) { }
   
 
   ngOnInit() {
@@ -21,6 +21,7 @@ export class Example2Component implements OnInit {
 
   onSave(form){
     this.global(form.value);
+    
   }
 
   global(form){
@@ -29,6 +30,10 @@ export class Example2Component implements OnInit {
     localStorage.setItem("form", JSON.stringify(form));
 
   
+  }
+  addPostMessage(form:HTMLInputElement){
+    // next triggers the value.
+    this.layoutserive.chatMessageAdded.next(form.value);
   }
 
 }

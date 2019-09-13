@@ -47,6 +47,7 @@ export class CardComponent {
   }
 
   ngOnInit() {
+   
   }
 
   addItem(content){
@@ -71,6 +72,15 @@ export class CardComponent {
   submitValue(form){
     this.layoutService.addItem(form.value);
     this.modalService.dismissAll('After Sumbit');
+  }
+  submitBlock(form){
+    this.layoutService.onSubmit(form.value);
+    
+    this.modalService.dismissAll('After Sumbit');
+    
+
+
+
   }
 
   openSettings(item){

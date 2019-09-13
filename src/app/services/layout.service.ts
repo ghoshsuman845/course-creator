@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, Injectable } from '@angular/core';
 import { CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
+import {Subject} from 'rxjs';
+
 
 export interface IComponent {
   id: string;
@@ -35,9 +37,13 @@ export class LayoutService {
   public components: IComponent[] = [];
 
   dropId: string;
+  element:string;
   hasContent:boolean=false;
   dragEnabled:boolean=false;
   resizeEnabled:boolean=false;
+  newLayout:any;
+
+  chatMessageAdded = new Subject();
 
   constructor() { }
 
@@ -51,9 +57,11 @@ export class LayoutService {
       hasContent: value.compHasContent == '1' ? true : false,
       dragEnabled: value.compDragEnabled == '1' ? true : false,
       resizeEnabled : value.compResizeEnabled == '1' ? true : false,
-      label : value.compLabel != '' ? value.compLabel : 'Block Title'
+      label : value.compLabel != '' ? value.compLabel : 'Block Title',
+      // element: this.components,
+      
     });
-    console.log(this.layout)
+    console.log("layout",this.layout)
   }
 
   deleteItem(id: string): void {
@@ -65,6 +73,7 @@ export class LayoutService {
 
   setDropId(dropId: string): void {
     this.dropId = dropId;
+    console.log("dropId",this.dropId);
   }
 
   dropItem(dragId: string): void {
@@ -73,9 +82,15 @@ export class LayoutService {
     const updateIdx: number = comp ? components.indexOf(comp) : components.length;
     const componentItem: IComponent = {
       id: this.dropId,
-      componentRef: dragId
+      componentRef: dragId,
     };
+    console.log("componentItem",componentItem.componentRef)
+
     this.components = Object.assign([], this.components, { [updateIdx]: componentItem });
+    console.log("component",this.components);
+
+   
+  //  this.element= localStorage.setItem("componentId",JSON.stringify(this.components));
   }
 
   removeItem(item): void {
@@ -95,7 +110,25 @@ export class LayoutService {
 
   getComponentRef(id: string): string {
     const comp = this.components.find(c => c.id === id);
+    // console.log("comp",comp);
     return comp ? comp.componentRef : null;
   }
 
+  onSubmit(value): void {
+   this.layout.push({
+      cols: value.compCols != '' ? value.compCols : "not specified",
+      id: UUID.UUID(),
+      rows: value.compRows != '' ? value.compRows : 5,
+      x: value.compXaxis != '' ? value.compXaxis : 0,
+      y: value.compYaxis != '' ? value.compYaxis : 0,
+      hasContent: value.compHasContent == '1' ? true : false,
+      dragEnabled: value.compDragEnabled == '1' ? true : false,
+      resizeEnabled : value.compResizeEnabled == '1' ? true : false,
+      label : value.compLabel != '' ? value.compLabel : 'Block Title',
+      element: this.components,
+      // element: this.components,
+      
+   });
+    console.log("final layout",this.layout)
+  }
 }
