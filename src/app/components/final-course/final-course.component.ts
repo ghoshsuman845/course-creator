@@ -16,21 +16,32 @@ export class FinalCourseComponent implements OnInit {
   block:any;
   
   listPost = [];
-  input =[];
- 
+  
   constructor (private httpService: HttpClient,private layoutService:LayoutService) { }
   
 
   ngOnInit() {
+    
     this.layoutService.chatMessageAdded.subscribe((data) => {
      this.divdata = this.listPost.push(data);
      localStorage.setItem("form",this.divdata)
       console.log("data", data);
-     this.component1= localStorage.getItem("item");
-     this.component1= document.getElementById("comp1");
-    
-  //  this.component1.innerHTML += "<div>" + this.component + "<div>";
-     console.log("getting html to final course",this.component1)
+     
+     
+     
+ 
+         var component= localStorage.getItem("item");
+         console.log(component);
+         this.component1 = "<div>" + component + "</div>";
+         console.log(this.component1);
+        
+         
+     
+      
+        // this.component1.innerHTML += "<div>" + this.component + "<div>";
+        // console.log(this.component1.innerHTML);
+     
+     
    
 
     
@@ -45,11 +56,7 @@ export class FinalCourseComponent implements OnInit {
       
         // this.block1.innerHTML += "<div>" + this.block + "<div>";
         // console.log(this.block1.innerHTML)
-    //   this.component = localStorage.getItem("example3");
-    //   this.component1= document.getElementById("comp1");
-    
-    //   this.component1.innerHTML += "<div>" + this.component + "<div>";
-    //   console.log(this.component1.innerHTML)
+    //  
 
       
     
