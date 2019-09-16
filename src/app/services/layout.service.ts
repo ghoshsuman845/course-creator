@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, Injectab
 import { CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
 import {Subject} from 'rxjs';
+import { isNgTemplate } from '@angular/compiler';
 
 
 export interface IComponent {
@@ -42,6 +43,8 @@ export class LayoutService {
   dragEnabled:boolean=false;
   resizeEnabled:boolean=false;
   newLayout:any;
+  example3:any;
+  item:any;
 
   chatMessageAdded = new Subject();
 
@@ -85,6 +88,15 @@ export class LayoutService {
       componentRef: dragId,
     };
     console.log("componentItem",componentItem.componentRef)
+    if(componentItem.componentRef==="example3"){
+      console.log("true");
+     this.example3= localStorage.getItem("example3");
+     console.log("droppeditemInput",this.example3)
+
+
+    }else{
+      console.log("false")
+    }
 
     this.components = Object.assign([], this.components, { [updateIdx]: componentItem });
     console.log("component",this.components);
@@ -126,9 +138,23 @@ export class LayoutService {
       resizeEnabled : value.compResizeEnabled == '1' ? true : false,
       label : value.compLabel != '' ? value.compLabel : 'Block Title',
       element: this.components,
+      item:this.example3 != 'undefined'? this.example3 : 'undefined',
       // element: this.components,
       
    });
-    console.log("final layout",this.layout)
+    console.log("final layout",this.layout);
+    // console.log("componentRef", this.components)
+    // var i;
+    // var text = "";
+    // for (i = 0; i < this.components.length; i++) {
+    //   text += this.components[i] ;
+    //   console.log("componentRef", text)
+    // }
+    this.item = this.example3;
+    localStorage.setItem("item",this.item);
+    console.log( "this.item", this.item);
+
+
+  
   }
 }

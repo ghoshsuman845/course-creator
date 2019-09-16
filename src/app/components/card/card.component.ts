@@ -74,10 +74,12 @@ export class CardComponent {
     this.modalService.dismissAll('After Sumbit');
   }
   submitBlock(form){
-    this.layoutService.onSubmit(form.value);
+     this.layoutService.onSubmit(form.value);
+     console.log("form value", form.value)
+      this.layoutService.chatMessageAdded.next(form.value);
     
     this.modalService.dismissAll('After Sumbit');
-    
+    this.layout.push()
 
 
 
@@ -89,6 +91,7 @@ export class CardComponent {
       console.log(item)
   }
   onSave(form){
+    
     this.global(form.value);
   }
 
